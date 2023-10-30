@@ -110,6 +110,12 @@ public class WireframeRenderer : MonoBehaviour
 
     public void OnRenderObject()
     {
+        /* Prevent rendering to every small preview window in the editor */
+        if(Camera.current && Camera.current.cameraType == CameraType.Preview)
+        {
+            return;
+        }
+
         if (lineSegments == null || lineSegments.Count == 0)
         {
             return;
