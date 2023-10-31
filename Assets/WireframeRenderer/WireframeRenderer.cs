@@ -75,10 +75,13 @@ public class WireframeRenderer : MonoBehaviour
 
             foreach (LineSegment line in lineSegments)
             {
-                Vector3 aPosL = line.aPos + line.aNormal * width;
-                Vector3 aPosR = line.aPos - line.aNormal * width;
-                Vector3 bPosL = line.bPos + line.bNormal * width;
-                Vector3 bPosR = line.bPos - line.bNormal * width;
+                Vector3 perpendicular = Vector3.Cross(
+                    line.aNormal, line.bPos - line.aPos);
+
+                Vector3 aPosL = line.aPos + perpendicular * width;
+                Vector3 aPosR = line.aPos - perpendicular * width;
+                Vector3 bPosL = line.bPos + perpendicular * width;
+                Vector3 bPosR = line.bPos - perpendicular * width;
 
                 GL.Vertex3(aPosL.x, aPosL.y, aPosL.z);
                 GL.Vertex3(aPosR.x, aPosR.y, aPosR.z);
