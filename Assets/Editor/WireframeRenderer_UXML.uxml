@@ -6,7 +6,7 @@
         <ui:Button text="Prepare wireframe for all WireframeRenderers in scene" display-tooltip-when-elided="true" name="prepareAllButton" style="flex-wrap: wrap; white-space: normal;" />
     </ui:Foldout>
     <ui:Foldout text="Render wireframe" style="margin-top: 8px;">
-        <ui:DropdownField label="Mode" index="0" choices="System.Collections.Generic.List`1[System.String]" binding-path="renderMode" />
+        <uie:EnumField label="Mode" binding-path="renderMode" />
         <uie:ObjectField label="Material" type="UnityEngine.Material, UnityEngine.CoreModule" binding-path="lineMaterial" />
         <uie:FloatField label="Width" value="0.01" binding-path="width" />
     </ui:Foldout>
